@@ -155,6 +155,11 @@ class PlayerProxy extends AbstractPlayerActor {
         cuiActor.dispatchCUIEvent(event);
     }
 
+    @Override
+    public void tellVersion() {
+        basePlayer.tellVersion();
+    }
+
     @Nullable
     @Override
     public <T> T getFacet(Class<? extends T> cls) {

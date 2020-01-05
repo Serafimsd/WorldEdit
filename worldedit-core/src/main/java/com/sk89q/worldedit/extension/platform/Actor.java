@@ -163,4 +163,7 @@ public interface Actor extends Identifiable, SessionOwner, Subject {
      * @return The locale
      */
     Locale getLocale();
+
+    default void tellVersion() {
+    }
 }
