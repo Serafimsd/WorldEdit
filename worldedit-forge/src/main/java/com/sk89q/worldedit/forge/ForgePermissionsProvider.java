@@ -23,8 +23,7 @@ import org.spongepowered.api.entity.living.player.Player;
 
 import net.minecraft.command.ICommand;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.GameType;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.server.permission.PermissionAPI;
 
 public interface ForgePermissionsProvider {
 
@@ -42,10 +41,11 @@ public interface ForgePermissionsProvider {
 
         @Override
         public boolean hasPermission(EntityPlayerMP player, String permission) {
-            ForgeConfiguration configuration = platform.getConfiguration();
+            /*ForgeConfiguration configuration = platform.getConfiguration();
             return configuration.cheatMode ||
                     FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().canSendCommands(player.getGameProfile()) ||
-                    (configuration.creativeEnable && player.interactionManager.getGameType() == GameType.CREATIVE);
+                    (configuration.creativeEnable && player.interactionManager.getGameType() == GameType.CREATIVE);*/
+            return PermissionAPI.hasPermission(player, permission);
         }
 
         @Override
